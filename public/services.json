@@ -1,0 +1,23 @@
+ [
+    {
+        "id":"Package1",
+        "name":"Cox's Bazar Visit",
+        "description": "There is a long largest Sea Beach in the world. ",
+        "img":"./images/services/services2.png",
+        "price": "Tk 10000"
+    }, 
+    {
+        "id":"Package2",
+        "name":"Ranga Mati Visit",
+        "description": "Memorable scenery and beautiful environment with colorful soil.",
+        "img":"./images/services/services1.png",
+        "price": "Tk 15000"
+    }, 
+    {
+        "id":"Package3",
+        "name":"Saint Martin Visit",
+        "description": "There is a small land in Bay of Bangle Ocean which is south-east of Bangladesh. But very enjoyable place with blue water.",
+        "img":"./images/services/services3.png",
+        "price": "Tk 18000"
+    }
+]
