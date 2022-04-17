@@ -1,6 +1,6 @@
 import "./Services.css";
 import useData from "../../../Hook/useData";
-import Item from "../Service/Service";
+import Service from "../Service/Service";
 
 const Services = () => {
   const [services, setServices] = useData();
@@ -19,8 +19,8 @@ const Services = () => {
       </div>
 
       <div className="choose-grid">
-        {services.map((item) => (
-          <Item item={item} key={item.id}></Item>
+        {services.map((service) => (
+          <Service service={service} key={service.id}></Service>
         ))}
       </div>
     </div>

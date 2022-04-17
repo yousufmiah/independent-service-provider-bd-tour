@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import banner from "../Assets/images/banner/banner4.jpg";
@@ -16,6 +16,9 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
 
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const emailBlur = (event) => {
     setEmail(event.target.value);
   };
@@ -23,7 +26,8 @@ const Login = () => {
     setPassword(event.target.value);
   };
   if (user) {
-    navigate("/home");
+    // navigate("/home");
+    navigate(from, { replace: true });
   }
 
   const handleFormLogIn = (event) => {

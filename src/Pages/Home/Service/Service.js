@@ -2,10 +2,10 @@ import React from "react";
 import "./Service.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSprout } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Service = (props) => {
-  const { id, name, img, description, price } = props.item;
+  const { name, img, description, price } = props.service;
 
   const navigate = useNavigate();
   const navigateServiceDetail = (id) => {
@@ -26,9 +26,17 @@ const Service = (props) => {
           <p className="mt-3">{description}</p>
         </div>
       </div>
-      {/* <Link to={"/service/" + id}>See more...</Link>
+      <div className="d-flex">
+        <h4>{price}</h4>
+        {/* <Link to={"/service/" + id}>See more...</Link>
       <Link to={`/service/${id}`}>See more...</Link> */}
-      <button onClick={() => navigateServiceDetail(id)}>Details</button>
+        <button
+          className="btn btn-primary ms-4"
+          onClick={() => navigateServiceDetail()}
+        >
+          Details
+        </button>
+      </div>
     </div>
   );
 };
