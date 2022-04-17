@@ -1,5 +1,4 @@
 import React from "react";
-// import { Container, Nav, Navbar } from "react-bootstrap";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import "./Header.css";
 import logo from "../../Assets/images/logo/logobd.png";
@@ -7,8 +6,8 @@ import { Link } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -19,7 +18,7 @@ const Header = () => {
   return (
     <div className="sticky-top">
       <Navbar bg="light" expand="lg">
-        <Container className="d-flex justify-content-between">
+        <Container className="d-flex justify-content-between align-items-center">
           <Navbar.Brand href="#home">
             <img style={{ height: "40px" }} src={logo} alt="" />
             <strong
@@ -30,32 +29,44 @@ const Header = () => {
             </strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
 
-              <Link to="/home">
-                <Button className="btn btn-success px-4 me-4">Home</Button>
-              </Link>
-              <Link to="/services">
-                <Button className="btn btn-success px-4 me-4">Services</Button>
-              </Link>
-              {user ? (
-                <Link to="/login">
-                  <Button
-                    onClick={handleSignOut}
-                    className="btn btn-danger px-4 me-4"
-                  >
-                    SignOut
-                  </Button>
+          <div>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                {/* <Nav.Link href="services#home">Home</Nav.Link>
+                <Nav.Link href="#Services">Services</Nav.Link> */}
+
+                <Link
+                  style={{ fontWeight: "500", fontSize: "20px" }}
+                  className="text-decoration-none me-5"
+                  to="/home"
+                >
+                  Home
                 </Link>
-              ) : (
-                <Link to="/login">
-                  <Button className="btn btn-primary px-4">Login</Button>
+                <Link
+                  style={{ fontWeight: "500", fontSize: "20px" }}
+                  className="text-decoration-none me-5"
+                  to="/services"
+                >
+                  Services
                 </Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
+                {user ? (
+                  <Link to="/login">
+                    <Button
+                      onClick={handleSignOut}
+                      className="btn btn-danger px-4 me-4"
+                    >
+                      SignOut
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <Button className="btn btn-primary px-4">Login</Button>
+                  </Link>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </div>
         </Container>
       </Navbar>
     </div>
