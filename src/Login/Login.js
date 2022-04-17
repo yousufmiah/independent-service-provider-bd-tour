@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className="pt-4 back-image">
       <div
-        style={{ backgroundImage: `url(${banner})` }}
+        // style={{ backgroundImage: `url(${banner})` }}
         className="container neo pt-4 mx-auto w-25 justify-content-center "
       >
         <h2 className="text-center ">Login</h2>
@@ -64,9 +64,13 @@ const Login = () => {
             <input className="btn btn-primary" type="submit" value="Login" />
           </div>
         </form>
-        <p className="mt-3 text-center">
-          New to Red Onion?
-          <Link to="/signUp" className="text-primary text-decoration-none ms-2">
+        <p className="mt-3 text-center" style={{ fontWeight: "700" }}>
+          New to BD Tour?
+          <Link
+            to="/signUp"
+            style={{ fontWeight: "700" }}
+            className="text-decoration-none ms-2"
+          >
             Please Sign Up
           </Link>
         </p>

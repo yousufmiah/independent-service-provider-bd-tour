@@ -26,13 +26,14 @@ const SocialLogin = () => {
         <div style={{ height: "1px" }} className="bg-primary w-50"></div>
         <p
           className="px-4"
-          style={{ fontWeight: "bold", color: "red", fontSize: "20px" }}
+          style={{ fontWeight: "bold", color: "black", fontSize: "20px" }}
         >
           or
         </p>
         <div style={{ height: "1px" }} className="bg-primary w-50"></div>
       </div>
       {errorElement}
+
       <div onClick={() => signInWithGoogle()} className="form-container">
         <input
           className="btn btn-success"

@@ -55,7 +55,7 @@ const SignUp = () => {
   return (
     <div className="pt-4 back-image">
       <div
-        style={{ backgroundImage: `url(${banner})` }}
+        // style={{ backgroundImage: `url(${banner})` }}
         className=" container neo mx-auto w-25 justify-content-center "
       >
         <h2 className="text-center ">Sign Up</h2>
@@ -97,9 +97,13 @@ const SignUp = () => {
             <input className="btn btn-primary" type="submit" value="Sign Up" />
           </div>
         </form>
-        <p className="mt-3 text-center">
+        <p className="mt-3 text-center" style={{ fontWeight: "700" }}>
           Already Have an Account?
-          <Link to="/login" className="text-primary text-decoration-none ms-2">
+          <Link
+            to="/login"
+            className="text-primary text-decoration-none ms-2"
+            style={{ fontWeight: "700" }}
+          >
             Please Login
           </Link>
         </p>

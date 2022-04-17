@@ -16,7 +16,7 @@
 }
 
 .back-image{
-    background-Image: url("");
+    background-Image: url("../../src/Assets/images/banner/banner4.jpg");
     height: 100vh;
    background-size: cover;
     
