@@ -16,60 +16,68 @@ const Header = () => {
     signOut(auth);
   };
   return (
-    <div className="sticky-top">
-      <Navbar bg="light" expand="lg">
-        <Container className="d-flex justify-content-between align-items-center">
-          <Navbar.Brand href="#home">
-            <img style={{ height: "40px" }} src={logo} alt="" />
-            <strong
-              style={{ fontSize: "25px" }}
-              className="ps-2 text-success font-bold"
-            >
-              BD Tour
-            </strong>
-          </Navbar.Brand>
+    <Navbar bg="light" expand="lg" className="sticky-top">
+      <Container className="d-flex justify-content-between">
+        <Link to="/home" className="text-decoration-none">
+          <img style={{ height: "40px" }} src={logo} alt="" />
+          <strong
+            style={{ fontSize: "25px" }}
+            className="ps-2 text-success font-bold"
+          >
+            BD Tour Guide
+          </strong>
+        </Link>
+        <div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-          <div>
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                {/* <Nav.Link href="services#home">Home</Nav.Link>
-                <Nav.Link href="#Services">Services</Nav.Link> */}
-
-                <Link
-                  style={{ fontWeight: "500", fontSize: "20px" }}
-                  className="text-decoration-none me-5"
-                  to="/home"
-                >
-                  Home
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Link
+                style={{ fontWeight: "500", fontSize: "20px" }}
+                className="text-decoration-none me-5"
+                to="/home"
+              >
+                Home
+              </Link>
+              <Link
+                style={{ fontWeight: "500", fontSize: "20px" }}
+                className="text-decoration-none me-5"
+                to="/services"
+              >
+                Services
+              </Link>
+              <Link
+                style={{ fontWeight: "500", fontSize: "20px" }}
+                className="text-decoration-none me-5"
+                to="/blogs"
+              >
+                Blogs
+              </Link>
+              <Link
+                style={{ fontWeight: "500", fontSize: "20px" }}
+                className="text-decoration-none me-5"
+                to="/about"
+              >
+                About
+              </Link>
+              {user ? (
+                <Link to="/login">
+                  <Button
+                    onClick={handleSignOut}
+                    className="btn btn-danger px-4 me-4"
+                  >
+                    SignOut
+                  </Button>
                 </Link>
-                <Link
-                  style={{ fontWeight: "500", fontSize: "20px" }}
-                  className="text-decoration-none me-5"
-                  to="/services"
-                >
-                  Services
+              ) : (
+                <Link to="/login">
+                  <Button className="btn btn-primary px-4">Login</Button>
                 </Link>
-                {user ? (
-                  <Link to="/login">
-                    <Button
-                      onClick={handleSignOut}
-                      className="btn btn-danger px-4 me-4"
-                    >
-                      SignOut
-                    </Button>
-                  </Link>
-                ) : (
-                  <Link to="/login">
-                    <Button className="btn btn-primary px-4">Login</Button>
-                  </Link>
-                )}
-              </Nav>
-            </Navbar.Collapse>
-          </div>
-        </Container>
-      </Navbar>
-    </div>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+      </Container>
+    </Navbar>
   );
 };
 

@@ -1,6 +1,6 @@
 
 
-.neo-about{
+.neo-blog{
     border: 1px solid lightblue;
     padding: 20px;
     height: 100%;
@@ -10,30 +10,15 @@
                 -10px -10px 20px #ffffff;
 }
 
-.about-pic img{
-    width: 200px;
-    height: 265px;
-    border-radius: 50%;
-    text-align: center;
+.title-blog h2{
+    margin-bottom: 50px;
+    font-weight: 900;
 }
-
-.img-div{
-    height: 2px;
-    width: 500px;
-    background-color: blueviolet;
-}
-
-.self-name h3{
-    font-weight: 1000;
-}
-.self-name p{
-    font-size: 20px;
-}
-
 .text-p{
+    font-size: 20px;
     margin-top: 25px;
     padding: 0 150px;
-text-align: justify;    
+    text-align: left;    
 }
 
  

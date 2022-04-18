@@ -1,5 +1,8 @@
 
+
 .neo{
+    width:25%;
+    margin: auto;
     border: 1px solid lightblue;
     padding: 20px;
     border-radius: 19px;
@@ -9,6 +12,7 @@
 }
 .form-container input{
    width: 100%;
+   margin: auto;
     display: block;
     margin-top: 20px;
     padding: 10px;
@@ -21,3 +25,11 @@
    background-size: cover;
     
 }
+
+ @media only screen and (max-width: 900px) {
+ 
+    .neo{
+        width:100%;
+        margin: auto;
+    }
+ }

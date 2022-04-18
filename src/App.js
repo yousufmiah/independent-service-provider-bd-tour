@@ -10,6 +10,7 @@ import Header from "./Shared/Header/Header";
 import SignUp from "./SingUp/SignUp";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 import RequireAuth from "./RequireAuth.js/RequireAuth";
+import Blogs from "./Pages/Home/Blogs/Blogs";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           element={<ServiceDetail></ServiceDetail>}
         ></Route>
 
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
 
         <Route

@@ -43,7 +43,7 @@ const Login = () => {
     <div className="pt-4 back-image">
       <div
         // style={{ backgroundImage: `url(${banner})` }}
-        className="container neo pt-4 mx-auto w-25 justify-content-center "
+        className=" neo pt-4 justify-content-center "
       >
         <h2 className="text-center ">Login</h2>
         <form onSubmit={handleFormLogIn}>
@@ -75,7 +75,7 @@ const Login = () => {
             style={{ fontWeight: "700" }}
             className="text-decoration-none ms-2"
           >
-            Please Sign Up
+            Please Register
           </Link>
         </p>
         <SocialLogin></SocialLogin>

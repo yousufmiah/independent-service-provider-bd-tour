@@ -56,9 +56,9 @@ const SignUp = () => {
     <div className="pt-4 back-image">
       <div
         // style={{ backgroundImage: `url(${banner})` }}
-        className=" container neo mx-auto w-25 justify-content-center "
+        className=" neo justify-content-center "
       >
-        <h2 className="text-center ">Sign Up</h2>
+        <h2 className="text-center ">Register</h2>
         <form onSubmit={handleCreateSignInUser}>
           <div className="form-container">
             <input

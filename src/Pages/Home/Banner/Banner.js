@@ -18,40 +18,30 @@ const Banner = () => {
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
           <Carousel.Caption>
-            <h1 style={{ fontSize: "50px", color: "white", fontWeight: "700" }}>
-              Ranga Mati
-            </h1>
-            <p style={{ fontSize: "30px", color: "white", fontWeight: "500" }}>
-              You can feel natural environment with colorful soil.
-            </p>
+            <div className="title-size">
+              <h1>Ranga Mati</h1>
+              <p>You can feel natural environment with colorful soil.</p>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={banner2} alt="Second slide" />
 
           <Carousel.Caption>
-            <h1
-              style={{ fontSize: "50px", color: "yellow", fontWeight: "700" }}
-            >
-              Saint Martin
-            </h1>
-            <p style={{ fontSize: "30px", color: "yellow" }}>
-              enjoy with blue water in the place.
-            </p>
+            <div className="title-size">
+              <h1>Saint Martin</h1>
+              <p> enjoy with blue water in the place. </p>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={banner3} alt="Third slide" />
 
           <Carousel.Caption>
-            <h1
-              style={{ fontSize: "50px", color: "yellow", fontWeight: "700" }}
-            >
-              Cox's Bazar
-            </h1>
-            <p style={{ fontSize: "30px", color: "yellow" }}>
-              A long largest Sea Beach in the World.
-            </p>
+            <div className="title-size">
+              <h1>Cox's Bazar</h1>
+              <p> A long largest Sea Beach in the World. </p>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
