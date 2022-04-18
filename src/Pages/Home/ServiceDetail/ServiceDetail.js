@@ -10,13 +10,6 @@ const ServiceDetail = () => {
   const navigate = useNavigate();
   const handleProceed = () => {
     navigate("/CheckOut");
-    Swal.fire({
-      position: "Center",
-      icon: "error",
-      title: "Please Login to Proceed.",
-      showConfirmButton: false,
-      timer: 2500,
-    });
   };
 
   return (

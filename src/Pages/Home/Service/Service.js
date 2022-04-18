@@ -18,7 +18,7 @@ const Service = (props) => {
       icon: "success",
       title: "Going to Details",
       showConfirmButton: false,
-      timer: 2000,
+      timer: 1500,
     });
   };
   return (
