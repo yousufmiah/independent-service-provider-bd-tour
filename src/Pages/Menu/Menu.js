@@ -1,21 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Menu.css";
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import CustomLink from "../../CustomLink/CustomLink";
+// import "./Menu.css";
 
-const Menu = () => {
-  return (
-    <div>
-      <nav>
-        <Link to="/home">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/blogs">Blogs</Link>
-        <Link to="/about">About</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signout">SignOut</Link>
-        <Link to="/details">Details</Link>
-      </nav>
-    </div>
-  );
-};
+// const Menu = () => {
+//   return (
+//     <div>
+//       <nav>
+//         <CustomLink to="/home">Home</CustomLink>
+//         <CustomLink to="/services">Services</CustomLink>
+//         <CustomLink to="/blogs">Blogs</CustomLink>
+//         <CustomLink to="/about">About</CustomLink>
+//         <CustomLink to="/login">Login</CustomLink>
+//         <CustomLink to="/signout">SignOut</CustomLink>
+//         <CustomLink to="/details">Details</CustomLink>
+//       </nav>
+//     </div>
+//   );
+// };
 
-export default Menu;
+// export default Menu;
