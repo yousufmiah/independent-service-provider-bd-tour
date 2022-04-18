@@ -3,14 +3,23 @@ import "./Service.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSprout } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Service = (props) => {
   const { name, img, description, price, terms } = props.service;
 
   const navigate = useNavigate();
+
   const navigateServiceDetail = (id) => {
     // navigate("/service/+id");
     navigate(`/service/${id}`);
+    Swal.fire({
+      position: "Center",
+      icon: "success",
+      title: "Going to Details",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   };
   return (
     <div className="choose-item ">

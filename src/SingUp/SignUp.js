@@ -5,7 +5,7 @@ import auth from "../Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import eye from "../Assets/images/eye/eye.png";
+import Swal from "sweetalert2";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -74,7 +74,16 @@ const SignUp = () => {
 
   const handleFormLogIn = (event) => {
     event.preventDefault();
+    Swal.fire({
+      position: "Center",
+      icon: "success",
+      title: "Thanks for With Us.",
+      showConfirmButton: false,
+      timer: 2500,
+    });
+
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+
     if (!user) {
       setErrors("email not found.");
     }
@@ -94,7 +103,7 @@ const SignUp = () => {
           toast("Something went wrong.");
       }
     }
-    console.log(hookError);
+    // console.log(hookError);
   }, [hookError]);
 
   return (
@@ -169,6 +178,7 @@ const SignUp = () => {
             Please Login
           </Link>
         </p>
+
         <SocialLogin></SocialLogin>
       </div>
     </div>
