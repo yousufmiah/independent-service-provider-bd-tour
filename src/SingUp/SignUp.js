@@ -1,84 +1,119 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../Firebase/Firebase.init";
-import banner from "../Assets/images/banner/banner4.jpg";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import eye from "../Assets/images/eye/eye.png";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    general: "",
+  });
 
-  const [createUserWithEmailAndPassword, user, loading, hookerror] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, hookError] =
+    useCreateUserWithEmailAndPassword(auth, { useSendEmailVerification: true });
+
   const navigate = useNavigate();
 
-  // const navigateLogin = () => {
-  //   navigate("./login");
-  // };
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
-  const handleNameBlur = (event) => {
-    setName(event.target.value);
-  };
-  const handleEmailBlur = (event) => {
-    setEmail(event.target.value);
-  };
-  const handlePasswordBlur = (event) => {
-    setPassword(event.target.value);
-  };
-  const handleConfirmPasswordBlur = (event) => {
-    setConfirmPassword(event.target.value);
-  };
-
-  if (user) {
-    navigate("/home");
-  }
-
-  const handleCreateSignInUser = (event) => {
-    event.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Password is not match.");
-      return;
-    } else if (password.length < 6) {
-      setError("Password Minimum 6 Characters.");
-      return;
+  const handleEmailOnChange = (event) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    const validEmail = emailRegex.test(event.target.value);
+    // console.log(validEmail);
+    if (validEmail) {
+      setUserInfo({ ...userInfo, email: event.target.value });
+      setErrors({ ...errors, email: "" });
     } else {
-      createUserWithEmailAndPassword(email, password);
-      console.log(name, email, password);
+      setErrors({ ...errors, email: "Invalid Email" });
+      setUserInfo({ ...userInfo, email: "" });
     }
   };
 
+  const handlePasswordOnChange = (event) => {
+    const passwordRegex = /.{6,}/;
+    const validPassword = passwordRegex.test(event.target.value);
+
+    if (validPassword) {
+      setUserInfo({ ...userInfo, password: event.target.value });
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({ ...errors, password: "Minimum 6 character" });
+      setUserInfo({ ...userInfo, password: "" });
+    }
+  };
+
+  const handleConfirmPasswordOnChange = (event) => {
+    if (event.target.value === userInfo.password) {
+      setUserInfo({ ...userInfo, confirmPassword: event.target.value });
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({ ...errors, password: "Password don't match" });
+      setUserInfo({ ...userInfo, confirmPassword: "" });
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      // navigate("/home");
+      navigate(from, { replace: true });
+    }
+  }, [user]);
+
+  const handleFormLogIn = (event) => {
+    event.preventDefault();
+    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    if (!user) {
+      setErrors("email not found.");
+    }
+    // console.log(email, password);
+  };
+
+  useEffect(() => {
+    if (hookError) {
+      switch (hookError?.code) {
+        case "auth/invalid-email":
+          toast("Invalid Email, Please provide valid email.");
+          break;
+        case "auth/invalid-password":
+          toast("Wrong Password");
+          break;
+        default:
+          toast("Something went wrong.");
+      }
+    }
+    console.log(hookError);
+  }, [hookError]);
+
   return (
     <div className="pt-4 back-image">
-      <div
-        // style={{ backgroundImage: `url(${banner})` }}
-        className=" neo justify-content-center "
-      >
-        <h2 className="text-center ">Register</h2>
-        <form onSubmit={handleCreateSignInUser}>
-          <div className="form-container">
+      <div className=" neo pt-4 justify-content-center ">
+        <h2 className="text-center ">Sign Up</h2>
+        <form onSubmit={handleFormLogIn}>
+          <div className="container-form">
             <input
-              onBlur={handleNameBlur}
-              type="text"
-              name="name"
-              id=""
-              placeholder="Name"
-              required
-            />
-            <input
-              onBlur={handleEmailBlur}
+              onChange={handleEmailOnChange}
               type="email"
               name="email"
               id=""
               placeholder="Email"
               required
             />
+            {errors?.email && <p className="error-message">{errors.email}</p>}
             <input
-              onBlur={handlePasswordBlur}
+              onChange={handlePasswordOnChange}
               type="password"
               name="password"
               id=""
@@ -86,23 +121,50 @@ const SignUp = () => {
               required
             />
             <input
-              onBlur={handleConfirmPasswordBlur}
+              onChange={handleConfirmPasswordOnChange}
               type="password"
               name="Password"
               id=""
               placeholder="Confirm Password"
               required
             />
-            {error}
-            <input className="btn btn-primary" type="submit" value="Sign Up" />
+            {errors?.password && (
+              <p className="error-message">{errors.password}</p>
+            )}
+            <div className="d-flex align-items-center">
+              <div>
+                <input
+                  style={{ height: "20px", width: "20px" }}
+                  onClick={() => setAgree(!agree)}
+                  type="checkbox"
+                  name="Terms"
+                  id="terms"
+                />
+              </div>
+              <div>
+                <label
+                  className={`ps-2 ${agree ? "" : "text-danger"}`}
+                  htmlFor="terms"
+                >
+                  <p className="para">Accept BD Tour Guide Terms Conditions.</p>
+                </label>
+              </div>
+            </div>
+            <input
+              disabled={!agree}
+              className="btn btn-primary"
+              type="submit"
+              value="Sign Up"
+            />
           </div>
+          <ToastContainer></ToastContainer>
         </form>
         <p className="mt-3 text-center" style={{ fontWeight: "700" }}>
-          Already Have an Account?
+          Already have an account ?
           <Link
             to="/login"
-            className="text-primary text-decoration-none ms-2"
             style={{ fontWeight: "700" }}
+            className="text-decoration-none ms-2"
           >
             Please Login
           </Link>

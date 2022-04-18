@@ -13,8 +13,10 @@ const ServiceDetail = () => {
 
   return (
     <div className="text-center">
-      <h2>service Detail: {serviceDetailId}</h2>
-      <button onClick={() => handleProceed()}>Proceed to CheckOut</button>
+      <h2>Service Detail: {serviceDetailId}</h2>
+      <button className="btn btn-primary" onClick={() => handleProceed()}>
+        Proceed to CheckOut
+      </button>
     </div>
   );
 };

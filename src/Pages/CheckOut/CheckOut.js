@@ -9,8 +9,10 @@ const CheckOut = () => {
   };
   return (
     <div className="text-center">
-      <h2>checkout page</h2>
-      <button onClick={handleCheckout}>CheckOut</button>
+      <h2>Checkout Page</h2>
+      <button className="btn btn-primary" onClick={handleCheckout}>
+        CheckOut
+      </button>
     </div>
   );
 };
