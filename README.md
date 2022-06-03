@@ -4,18 +4,6 @@ This project is [Honda Store](https://bd-tour-c7c18.web.app).
 
 [<img src='https://user-images.githubusercontent.com/71017764/171771955-5c82cafb-d58b-4eef-839d-700caefca18d.png'>](https://bd-tour-c7c18.web.app)
 
-# Getting Started with our website
-
-Live link [BD Tour Guide](https://bd-tour-c7c18.web.app)
-
-### Live Link
-This project is [BD Tour Guide](https://bd-tour-c7c18.web.app).
-
-[<img src='(https://user-images.githubusercontent.com/71017764/171771955-5c82cafb-d58b-4eef-839d-700caefca18d.png')](https://bd-tour-c7c18.web.app)
-      
-![image](https://user-images.githubusercontent.com/71017764/171771955-5c82cafb-d58b-4eef-839d-700caefca18d.png)
-
-
 Github link [BD Tour Guide](https://github.com/programming-hero-web-course-4/independent-service-provider-yousufmiah)
 
 ### `About this website`
